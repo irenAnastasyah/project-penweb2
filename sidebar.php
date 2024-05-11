@@ -5,7 +5,6 @@
         <span class="brand-text font-weight-light"><h1>RS.Bima</h1></span>
     </a>
 
-
     <!-- Sidebar -->
     <div class="sidebar">
         <!-- Sidebar user (optional) -->
