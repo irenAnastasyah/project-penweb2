@@ -4,16 +4,17 @@ require_once 'sidebar.php';
 
 require '../dbkoneksi.php';
 if (isset($_POST["submit"])) {
-    $_kode = $_POST['kode'];
-    $_nama = $_POST['nama'];
-    $_tmp_lahir = $_POST['tmp_lahir'];
-    $_tgl_lahir = $_POST['tgl_lahir'];
-    $_gender = $_POST['gender'];
-    $_email = $_POST['email'];
-    $_alamat = $_POST['alamat'];
-    $_kelurahan_id = $_POST['kelurahan_id'];
-    $data = [$_kode, $_nama, $_tmp_lahir, $_tgl_lahir, $_gender, $_email, $_alamat, $_kelurahan_id];
-    $sql = "INSERT INTO pasien (kode, nama, tmp_lahir, tgl_lahir, gender, email, alamat, kelurahan_id) VALUES (?,? ,? ,? ,? ,? ,? ,?)";
+    $_tanggal = $_POST['tanggal'];
+    $_berat_bdn = $_POST['berat'];
+    $_tinggi_bdn = $_POST['tinggi'];
+    $_tensi = $_POST['tensi'];
+    $_keterangan = $_POST['keterangan'];
+    $_id_pasien = $_POST['pasien_id'];
+    $_id_dokter = $_POST['dokter_id'];
+
+    $data = [$_tanggal, $_berat_bdn, $_tinggi_bdn, $_tensi, $_keterangan, $_id_pasien, $_id_dokter];
+
+    $sql = "INSERT INTO periksa (tanggal, berat, tinggi, tensi, keterangan, pasien_id, dokter_id) VALUES (?, ?, ?, ?, ?, ?, ?)";   
     $stmt = $dbh->prepare($sql);
     $stmt->execute($data);
     echo "<script>window.location.href = 'index.php';</script>";
@@ -42,7 +43,7 @@ if (isset($_POST["submit"])) {
                     <!-- Default box -->
                     <div class="card">
                         <div class="card-header">
-                            <h3 class="card-title">Form Pasien</h3>
+                            <h3 class="card-title">Form Periksa</h3>
 
                             <div class="card-tools">
                                 <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
@@ -54,71 +55,50 @@ if (isset($_POST["submit"])) {
                             </div>
                         </div>
                         <div class="card-body">
-                            <h2 class="text-center">Form Pasien</h2>
+                            <h2 class="text-center">Form Periksa</h2>
                             <form action="add.php" method="POST">
-                                <div class="form-group row">
-                                    <label for="kode" class="col-4 col-form-label">Kode</label>
+                            <div class="form-group row">
+                                    <label for="tanggal" class="col-4 col-form-label">Tanggal</label>
                                     <div class="col-8">
-                                        <input id="kode" name="kode" type="text" class="form-control">
+                                        <input id="tanggal" name="tanggal" type="date" class="form-control">
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <label for="nama" class="col-4 col-form-label">Nama</label>
-                                    <div class="col-8">
-                                        <input id="nama" name="nama" type="text" class="form-control">
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <label for="tmp_lahir" class="col-4 col-form-label">Tempat Lahir</label>
-                                    <div class="col-8">
-                                        <input id="tmp_lahir" name="tmp_lahir" type="text" class="form-control">
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <label for="tgl_lahir" class="col-4 col-form-label">Tanggal Lahir</label>
-                                    <div class="col-8">
-                                        <input id="tgl_lahir" name="tgl_lahir" type="date" class="form-control">
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <label for="gender" class="col-4 col-form-label">Jenis Kelamin</label>
-                                    <div class="col-8">
-                                        <select id="gender" name="gender" class="custom-select">
-                                            <option value="L">Laki-Laki</option>
-                                            <option value="P">Perempuan</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <label for="email" class="col-4 col-form-label">Email</label>
-                                    <div class="col-8">
-                                        <input id="email" name="email" type="email" class="form-control">
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <label for="alamat" class="col-4 col-form-label">Alamat</label>
-                                    <div class="col-8">
-                                        <input id="alamat" name="alamat" type="text" class="form-control">
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <label for="kelurahan_id" class="col-4 col-form-label">Kelurahan ID</label>
-                                    <div class="col-8">
-                                        <?php
-                                        $sqljenis = "SELECT * FROM kelurahan";
-                                        $rsjenis = $dbh->query($sqljenis);
-                                        ?>
-                                        <select id="kelurahan_id" name="kelurahan_id" class="custom-select">
-                                            <?php
-                                            foreach ($rsjenis as $rowjenis) {
-                                            ?>
-                                                <option value="<?= $rowjenis['id'] ?>"><?= $rowjenis['nama'] ?></option>
-                                            <?php
-                                            }
-                                            ?>
-                                        </select>
-                                    </div>
-                                </div>
+                <label for="berat" class="col-4 col-form-label">Berat Badan</label>
+                <div class="col-8">
+                    <input required id="berat" name="berat" type="number" class="form-control">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="tinggi" class="col-4 col-form-label">Tinggi Badan</label>
+                <div class="col-8">
+                    <input required id="tinggi" name="tinggi" type="number" class="form-control">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="tensi" class="col-4 col-form-label">Tensi</label>
+                <div class="col-8">
+                    <input required id="tensi" name="tensi" type="number" class="form-control">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="keterangan" class="col-4 col-form-label">Keterangan</label>
+                <div class="col-8">
+                    <textarea name="keterangan" id="keterangan" rows="5" class="form-control"></textarea>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="pasien_id" class="col-4 col-form-label">Id Pasien</label>
+                <div class="col-8">
+                    <input required id="pasien_id" name="pasien_id" type="number" class="form-control">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="dokter_id" class="col-4 col-form-label">Id Dokter</label>
+                <div class="col-8">
+                    <input required id="dokter_id" name="dokter_id" type="number" class="form-control">
+                </div>
+            </div>
                                 <div class="form-group row">
                                     <div class="offset-4 col-8">
                                         <button name="submit" type="submit" class="btn btn-primary">Submit</button>
