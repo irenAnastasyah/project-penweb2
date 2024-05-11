@@ -5,18 +5,18 @@
         <span class="brand-text font-weight-light"><h1>RS.Bima</h1></span>
     </a>
 
+
     <!-- Sidebar -->
     <div class="sidebar">
         <!-- Sidebar user (optional) -->
         <div class="user-panel mt-3 pb-3 mb-3 d-flex">
             <div class="image">
-                <img src="iren.jpg" class="img-circle elevation-2" alt="User Image" style = "witdh : 90px; height : 60px;">
+                <img src="../dist/img/me.jpg" class="img-circle elevation-2" alt="User Image">
             </div>
             <div class="info">
-                <a href="profile.php" class="d-block">Iren Anastasyah</a>
+                <a href="../profile.php" class="d-block">Iren Anastasyah</a>
             </div>
         </div>
-
 
         <!-- Sidebar Menu -->
         <nav class="mt-2">
@@ -24,7 +24,7 @@
                 <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
                <li class="nav-item">
-                    <a href="index.php" class="nav-link">
+                    <a href="../index.php" class="nav-link">
                         <i class="nav-icon fas fa-home"></i>
                         <p>
                             Halaman Utama
@@ -32,7 +32,7 @@
                     </a>
                 </li>
                <li class="nav-item">
-                    <a href="profile.php" class="nav-link">
+                    <a href="../profile.php" class="nav-link">
                         <i class="nav-icon fas fa-user-alt"></i>
                         <p>
                             Profile Mahasiswa
@@ -49,19 +49,19 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="pasien" class="nav-link">
+                            <a href="../pasien" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Table Pasien</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="paramedik" class="nav-link">
+                            <a href="../paramedik" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Table Paramedik</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="periksa" class="nav-link">
+                            <a href="../periksa" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Table Periksa</p>
                             </a>
@@ -79,13 +79,13 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="kelurahan" class="nav-link">
+                            <a href="../kelurahan" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Table Kelurahan</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="unit_kerja" class="nav-link">
+                            <a href="../unit_kerja" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Table Unit Kerja</p>
                             </a>
@@ -93,9 +93,9 @@
                     </ul>
                 </li>
                 <li class="nav-item">
-                    <a href="login.html" class="nav-link">
+                    <a href="../login.html" class="nav-link">
                         <i class="nav-icon fas fa-user"></i>
-                        <p> Logout</p>
+                        <p> Logout </p>
                     </a>
                 </li>
             </ul>
